@@ -2,352 +2,961 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>吉田蒼将プロフィール</title>
-  <link rel="icon" type="image/png" href="https://static.wikia.nocookie.net/minecraft_ja_gamepedia/images/f/f2/Melon_Slice_JE2_BE2.png/revision/latest?cb=20201003013621">
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:700,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="吉田蒼将（サスケ）の公式ポートフォリオ。社会基盤工学、教育、地域実践、Python自動化・24時間サーバー運用の実績。">
+  <title>吉田 蒼将 | Sasuke Yoshida — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --ink: #16201b;
+      --muted: #58645d;
+      --line: #dce3de;
+      --surface: #f7f9f7;
+      --green: #1b4332;
+      --green-2: #2d6a4f;
+      --green-pale: #e8f0eb;
+      --white: #ffffff;
+      --mono: "DM Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+      --sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      background: linear-gradient(135deg, #e0f7e9 0%, #b2dfdb 100%);
-      font-family: 'Noto Sans JP', sans-serif;
-      color: #234d20;
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { color: var(--green-2); }
+
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .content {
+      width: min(850px, 100%);
+    }
+
+    .eyebrow,
+    .section-number,
+    .meta-label,
+    .year,
+    .nav-brand small {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      color: var(--green-2);
+      font-weight: 500;
+      margin: 0 0 16px;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .site-nav {
+      min-height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-brand {
+      text-decoration: none;
+      line-height: 1.25;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .nav-brand small {
+      display: block;
+      color: var(--muted);
+      margin-top: 3px;
+      font-size: 9px;
+      font-weight: 400;
+    }
+
+    .nav-links {
       margin: 0;
       padding: 0;
-    }
-    .container {
-      max-width: 700px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(34,77,32,0.15);
-      padding: 40px 32px 32px 32px;
-    }
-    h1 {
-      font-size: 2.6em;
-      margin-bottom: 0.2em;
-      color: #388e3c;
-      letter-spacing: 0.1em;
-      border-bottom: 2px solid #81c784;
-      display: inline-block;
-      padding-bottom: 0.1em;
-    }
-    p {
-      font-size: 1.2em;
-      margin-top: 0;
-      color: #388e3c;
-    }
-    h2 {
-      color: #2e7d32;
-      margin-top: 2em;
-      border-left: 6px solid #66bb6a;
-      padding-left: 0.5em;
-      font-size: 1.5em;
-      letter-spacing: 0.05em;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li {
-      margin-bottom: 1em;
-      font-size: 1.1em;
-      background: #e8f5e9;
-      border-radius: 8px;
-      padding: 0.8em 1em;
-      box-shadow: 0 2px 8px rgba(56,142,60,0.05);
-    }
-    strong {
-      color: #1b5e20;
-      font-weight: 700;
-    }
-    .profile-img {
-      float: right;
-      margin-left: 32px;
-      margin-bottom: 16px;
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border: 4px solid #81c784;
-      box-shadow: 0 4px 16px rgba(56,142,60,0.12);
-    }
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      color: #388e3c;
-      font-size: 0.95em;
-      opacity: 0.7;
-    }
-    @media (max-width: 600px) {
-      .container {
-        padding: 8px;
-        max-width: 98vw;
-        margin: 12px auto;
-      }
-      h1 {
-        font-size: 1.5em;
-        padding-bottom: 0;
-        margin-bottom: 0.2em;
-      }
-      p {
-        font-size: 1em;
-      }
-      h2 {
-        font-size: 1.1em;
-        margin-top: 1.2em;
-        padding-left: 0.3em;
-      }
-      ul {
-        margin-bottom: 1em;
-        padding-left: 0;
-      }
-      li {
-        font-size: 0.95em;
-        padding: 0.5em 0.5em;
-        margin-bottom: 0.6em;
-        word-break: break-all;
-      }
-      .profile-img {
-        float: none;
-        display: block;
-        margin: 0 auto 12px auto;
-        width: 80px;
-        height: 80px;
-        border-width: 2px;
-      }
-      .footer {
-        font-size: 0.8em;
-        margin-top: 18px;
-      }
-      .opening-effect-text {
-        font-size: 2em;
-      }
-      .effect-sparkle {
-        width: 100vw;
-        height: 100vh;
-      }
-      body {
-        font-size: 15px;
-      }
-      a {
-        font-size: 0.98em;
-        word-break: break-all;
-      }
-    }
-
-    /* 追加したスタイル */
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(10px);
-      animation: fadeIn 0.8s forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* オープニングエフェクト */
-    .opening-effect {
-      position: fixed;
-      z-index: 9999;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: radial-gradient(circle at 50% 40%, #a5d6a7 0%, #388e3c 100%);
       display: flex;
       align-items: center;
+      list-style: none;
+      gap: 24px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .hero {
+      padding: 88px 0 72px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 315px;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 730px;
+      font-size: clamp(34px, 4.2vw, 58px);
+      font-weight: 700;
+      letter-spacing: -.045em;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--green);
+    }
+
+    .hero-lead {
+      max-width: 780px;
+      margin: 28px 0 0;
+      color: #35423a;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      overflow: hidden;
-      animation: openingFadeOut 1.5s 2.5s forwards;
+      min-height: 43px;
+      padding: 9px 18px;
+      border: 1px solid var(--green);
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color .15s ease, color .15s ease;
     }
-    .opening-effect-text {
-      color: #fff;
-      font-size: 10vw;
-      font-family: 'Noto Sans JP', sans-serif;
-      letter-spacing: 0.18em;
-      font-weight: bold;
-      opacity: 0;
-      text-shadow:
-        0 0 60px #66bb6a,
-        0 0 120px #388e3c,
-        0 0 24px #fff,
-        0 0 8px #fff;
-      animation:
-        textFadeIn 1.2s 0.3s forwards,
-        textGlow 2.5s 1.2s infinite alternate;
-      filter: blur(0.5px);
-      z-index: 2;
-      position: relative;
+
+    .button-primary {
+      color: var(--white);
+      background: var(--green);
     }
-    /* キラキラのパーティクル */
-    .effect-sparkle {
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      top: 0; left: 0;
-      z-index: 1;
+
+    .button-primary:hover {
+      color: var(--white);
+      background: #123223;
     }
-    .sparkle {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      background: radial-gradient(circle, #fff 0%, #b2ff59 60%, transparent 100%);
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: sparkleMove 2.5s linear infinite;
+
+    .button-secondary {
+      color: var(--green);
+      background: var(--white);
     }
-    @keyframes sparkleMove {
-      0% { transform: scale(0.7) translateY(0); opacity: 0.7;}
-      50% { transform: scale(1.2) translateY(-60px); opacity: 1;}
-      100% { transform: scale(0.7) translateY(0); opacity: 0.7;}
+
+    .button-secondary:hover { background: var(--green-pale); }
+
+    .profile-figure {
+      margin: 0;
+      border-bottom: 1px solid var(--line);
     }
-    @keyframes textFadeIn {
-      to { opacity: 1; filter: blur(0);}
+
+    .profile-figure img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      background: var(--surface);
+      filter: saturate(.9);
     }
-    @keyframes textGlow {
-      from { text-shadow: 0 0 60px #66bb6a, 0 0 120px #388e3c, 0 0 24px #fff, 0 0 8px #fff; }
-      to { text-shadow: 0 0 120px #fff, 0 0 180px #66bb6a, 0 0 48px #fff; }
+
+    .profile-figure figcaption {
+      padding: 10px 0 12px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      line-height: 1.5;
     }
-    @keyframes openingFadeOut {
-      to { opacity: 0; visibility: hidden; }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr .9fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .fact {
+      min-height: 132px;
+      padding: 25px 28px 24px 0;
+      border-right: 1px solid var(--line);
+    }
+
+    .fact + .fact { padding-left: 28px; }
+
+    .fact:last-child { border-right: 0; }
+
+    .meta-label {
+      display: block;
+      color: var(--green-2);
+      margin-bottom: 10px;
+    }
+
+    .fact p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    section { padding: 86px 0; }
+
+    section + section { border-top: 1px solid var(--line); }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 24px;
+      margin-bottom: 46px;
+    }
+
+    .section-number {
+      color: var(--green-2);
+      padding-top: 8px;
+    }
+
+    .section-title {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(27px, 3vw, 40px);
+      letter-spacing: -.035em;
+      line-height: 1.3;
+    }
+
+    .section-intro {
+      max-width: 780px;
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .statement {
+      border-left: 4px solid var(--green);
+      padding: 4px 0 4px 25px;
+      max-width: 810px;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.85;
+    }
+
+    .statement p { margin: 0; }
+
+    .principles {
+      margin-top: 48px;
+      border-top: 1px solid var(--line);
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 52px 220px minmax(0, 1fr);
+      gap: 22px;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .principle-index {
+      color: var(--green-2);
+      font-family: var(--mono);
+      font-size: 12px;
+      padding-top: 3px;
+    }
+
+    .principle h3,
+    .work-title,
+    .capability h3 {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: -.015em;
+      line-height: 1.55;
+    }
+
+    .principle p,
+    .capability p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .works {
+      border-top: 2px solid var(--green);
+    }
+
+    .work {
+      display: grid;
+      grid-template-columns: 130px minmax(0, 1fr) 170px;
+      gap: 28px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-type {
+      color: var(--green-2);
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.6;
+      letter-spacing: .03em;
+    }
+
+    .work-title { font-size: 20px; }
+
+    .work-title a {
+      color: var(--green);
+      text-decoration-color: #a5c7b2;
+    }
+
+    .work-title a:hover { color: #0f3221; }
+
+    .work-description {
+      margin: 10px 0 0;
+      color: #435048;
+      font-size: 14px;
+    }
+
+    .work-note {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .work-note strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 52px;
+      border-top: 1px solid var(--line);
+    }
+
+    .capability {
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .capability h3 { color: var(--green); }
+
+    .capability p { margin-top: 9px; }
+
+    .detail-list {
+      margin: 44px 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail-list li {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .detail-list strong { font-weight: 600; }
+
+    .education-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .education-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .school-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .school {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .school-logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .school-logo.placeholder { visibility: hidden; }
+
+    .school h3 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .school p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .timeline {
+      border-top: 2px solid var(--green);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr);
+      gap: 30px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .year {
+      color: var(--green-2);
+      font-size: 12px;
+      padding-top: 4px;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .timeline-item p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact {
+      padding: 82px 0 88px;
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .contact .section-number { color: #b8d7c4; }
+
+    .contact h2 {
+      margin: 0;
+      font-size: clamp(28px, 3.4vw, 43px);
+      letter-spacing: -.035em;
+      line-height: 1.3;
+    }
+
+    .contact p {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: #d9e9de;
+      font-size: 16px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 31px;
+    }
+
+    .contact .button-primary {
+      color: var(--green);
+      border-color: var(--white);
+      background: var(--white);
+    }
+
+    .contact .button-primary:hover { background: #e8f0eb; }
+
+    .contact .button-secondary {
+      color: var(--white);
+      border-color: #94baa2;
+      background: transparent;
+    }
+
+    .contact .button-secondary:hover {
+      color: var(--white);
+      background: rgba(255,255,255,.1);
+    }
+
+    footer {
+      padding: 20px 0;
+      background: #102a1e;
+      color: #b9ccbe;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .03em;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    @media (max-width: 800px) {
+      .container { width: min(100% - 32px, 1180px); }
+
+      .nav-links { display: none; }
+
+      .hero { padding: 56px 0 52px; }
+
+      .hero-grid,
+      .education-layout { grid-template-columns: 1fr; gap: 36px; }
+
+      .profile-figure { max-width: 315px; }
+
+      .quick-facts { grid-template-columns: 1fr; }
+
+      .fact,
+      .fact + .fact {
+        min-height: auto;
+        padding: 22px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .fact:last-child { border-bottom: 0; }
+
+      section { padding: 62px 0; }
+
+      .section-head,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-bottom: 33px;
+      }
+
+      .principle {
+        grid-template-columns: 40px 1fr;
+        gap: 10px 16px;
+      }
+
+      .principle p { grid-column: 2; }
+
+      .work {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .work-note { margin-top: 5px; }
+
+      .capability-grid { grid-template-columns: 1fr; }
+
+      .detail-list li,
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .school { grid-template-columns: 70px 1fr; }
+
+      footer .container { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <div class="opening-effect" id="openingEffect">
-    <span class="opening-effect-text">Welcome!</span>
-    <div class="effect-sparkle" id="sparkleArea"></div>
-  </div>
-  <div id="particles-js"></div>
-  <div class="container fade-in">
-    <img src="profile.png" alt="プロフィール画像" class="profile-img">
-    <h1>吉田 蒼将</h1>
-    <p>Sasuke Yoshida</p>
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="メインナビゲーション">
+      <a class="nav-brand" href="#top">
+        吉田 蒼将
+        <small>SASUKE YOSHIDA / PORTFOLIO</small>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#work">Projects</a></li>
+        <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <h2>プロフィール</h2>
-    <ul>
-      <li>
-        <strong>学校</strong><br>
-        ・市立札幌藻岩高等学校（2025年3月卒業）<br>
-        ・北見工業大学 工学部 地域未来デザイン工学科 在学中
-      </li>
-      <li>
-        <strong>誕生日</strong><br>
-        2006年6月7日
-      </li>
-    </ul>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Civil Infrastructure × Software × Education</p>
+          <h1>地域の課題を、<span>体験と仕組みで解く。</span></h1>
+          <p class="hero-lead">
+            吉田蒼将（サスケ）は、北見工業大学で社会基盤工学を学びながら、
+            教育・地域づくり・学内DXの現場で、企画から実装、継続運用までを担う学生です。
+            人の行動が変わる体験設計と、それを支える堅牢な技術基盤を一体でつくります。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">プロジェクトを見る</a>
+            <a class="button button-secondary" href="https://github.com/yoshida-sasuke" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
 
-    <h2>趣味</h2>
-    <ul>
-      <li>料理</li>
-      <li>ウォーキング</li>
-      <li>パソコン</li>
-    </ul>
+        <figure class="profile-figure">
+          <img src="profile.png" alt="吉田蒼将のプロフィール写真">
+          <figcaption>YOSHIDA SASUKE / KITAMI, HOKKAIDO</figcaption>
+        </figure>
+      </div>
+    </section>
 
-    <!-- 活動記録セクション修正 -->
-    <h2>活動記録</h2>
-    <ul>
-      <li>
-        <strong>ET-project</strong><br>
-            公共交通機関の利用促進をテーマにボードゲームを自作しワークショップを実施<br>
-            ＃SSAS2024　Originality賞受賞<br>
-            第６回持続可能な世界・北海道高校生コンテスト　優秀賞・三角山いっしょにね！賞受賞<br>
-      </li>
-      <li>
-        <strong>札幌まちづくりコンペティション</strong><br>
-        札幌まちづくりコンペティション2025　最優秀賞受賞<br>
-        パークPFIを用いた札幌市のまちづくりについて提案。<br>
-        現在は札幌市と合同で市民参加型のワークショップを計画中。
-      </li>
-    </ul>
-
-    <h2>リンク</h2>
-    <ul>
-      <li>
-        <a href="mailto:yoshida.sasuke.06@gmail.com" target="_blank" style="display:inline-flex;align-items:center;gap:0.5em;">
-          <img src="https://img.icons8.com/color/48/000000/gmail-new.png" alt="Gmail" width="28" height="28" style="vertical-align:middle;">
-          yoshida.sasuke.06@gmail.com
-        </a>
-      </li>
-      <li>
-        <a href="https://instagram.com/suika_ssk" target="_blank" style="display:inline-flex;align-items:center;gap:0.5em;">
-          <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram" width="28" height="28" style="vertical-align:middle;">
-          @suika_ssk
-        </a>
-      </li>
-      <li>
-        <a href="https://www.moiwa-h.sapporo-c.ed.jp/" target="_blank" style="display:inline-flex;align-items:center;gap:0.5em;">
-          <img src="moiwa-logo.png" alt="藻岩高校ロゴ" style="vertical-align:middle; background:#fff; border-radius:4px; padding:2px; height:28px; width:auto;">
-          藻岩高校公式サイト
-        </a>
-      </li>
-      <li>
-        <a href="https://www.kitami-it.ac.jp/" target="_blank" style="display:inline-flex;align-items:center;gap:0.5em;">
-          <img src="kit-logo.png" alt="北見工業大学ロゴ" style="vertical-align:middle; background:#fff; border-radius:4px; padding:2px; height:28px; width:auto;">
-          北見工業大学公式サイト
-        </a>
-      </li>
-    </ul>
-
-    <div class="footer">
-      &copy; 2025 Sasuke Yoshida
+    <div class="container quick-facts" aria-label="プロフィール概要">
+      <div class="fact">
+        <span class="meta-label">Affiliation</span>
+        <p>北見工業大学 工学部<br>地域未来デザイン工学科<br>社会インフラ工学コース 2年</p>
+      </div>
+      <div class="fact">
+        <span class="meta-label">Focus</span>
+        <p>構造・水理・土質・雪氷・測量・都市計画<br>Python自動化 / Linux運用 / Web・UI開発</p>
+      </div>
+      <div class="fact">
+        <span class="meta-label">Based in</span>
+        <p>北海道北見市<br>札幌市南区簾舞</p>
+      </div>
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    // particles.js 設定
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": "#66bb6a" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.4, "random": true },
-        "size": { "value": 6, "random": true },
-        "move": { "enable": true, "speed": 1.5 }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "repulse" },
-          "onclick": { "enable": false }
-        }
-      },
-      "retina_detect": true
-    });
 
-    // フェードイン
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.container').classList.add('fade-in');
-    });
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-number">01 / Approach</div>
+          <div>
+            <h2 class="section-title">専門を分けずに、実装まで責任を持つ。</h2>
+            <p class="section-intro">
+              社会インフラを学ぶ視点、利用者と対話する教育実践、日々の運用に耐えるソフトウェア技術。
+              その三つを往復し、抽象的な提案だけで終わらない地域実践を目指しています。
+            </p>
+          </div>
+        </div>
 
-    // オープニングエフェクト制御（派手なキラキラ追加）
-    window.addEventListener('load', () => {
-      // キラキラ生成
-      const sparkleArea = document.getElementById('sparkleArea');
-      for (let i = 0; i < 40; i++) {
-        const s = document.createElement('div');
-        s.className = 'sparkle';
-        s.style.left = Math.random() * 100 + 'vw';
-        s.style.top = Math.random() * 100 + 'vh';
-        s.style.animationDelay = (Math.random() * 2) + 's';
-        s.style.width = s.style.height = (12 + Math.random() * 24) + 'px';
-        sparkleArea.appendChild(s);
-      }
-      setTimeout(() => {
-        const opening = document.getElementById('openingEffect');
-        if (opening) opening.style.display = 'none';
-      }, 2800); // 2.5s + 0.3s = 2.8秒後に非表示
-    });
-  </script>
+        <div class="statement content">
+          <p>「誰かにとっての課題」を、本人が考え、試し、前に進める状態へ変える。そのために必要な場・体験・データ基盤を、現場でつくります。</p>
+        </div>
+
+        <div class="principles">
+          <article class="principle">
+            <div class="principle-index">01</div>
+            <h3>ナナメの関係</h3>
+            <p>親や教員とも、同級生とも異なる大学生メンターとして、中高生の自己効力感を引き出し、進路と挑戦の選択肢を増やします。</p>
+          </article>
+          <article class="principle">
+            <div class="principle-index">02</div>
+            <h3>体験から始める学び</h3>
+            <p>Minecraftやボードゲームを使い、人口減少、交通、都市計画といった社会課題を、参加者自身が判断する没入体験へ変換します。</p>
+          </article>
+          <article class="principle">
+            <div class="principle-index">03</div>
+            <h3>データと仕組み</h3>
+            <p>生活ログ、購買データ、業務フローを観察し、継続的に改善できる自動化・可視化・運用設計へ落とし込みます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-number">02 / Selected Work</div>
+          <div>
+            <h2 class="section-title">教育、地域、技術基盤を横断するプロジェクト。</h2>
+            <p class="section-intro">
+              企画書で終わらせず、実際に人が参加し、運用され、次の改善につながるところまで設計・実装しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="works">
+          <article class="work">
+            <div class="work-type">EDUCATION<br>BUSINESS</div>
+            <div>
+              <h3 class="work-title">ナナメイト <span lang="en">/ Nanameito</span></h3>
+              <p class="work-description">
+                小樽商科大学の原田美魂さんと共同代表を務める、大学生メンターによるオンラインサードプレイス。
+                Discord・Minecraftでの日常的な関わりを基盤に、不登校・通信制高校生の「居場所」から「探究体験」、総合型選抜で示せる実績ポートフォリオへの接続を設計しています。
+              </p>
+            </div>
+            <div class="work-note">
+              <strong>Role</strong>
+              共同代表<br>事業設計 / 技術設計<br>メンタリング設計
+            </div>
+          </article>
+
+          <article class="work">
+            <div class="work-type">SERIOUS<br>GAME</div>
+            <div>
+              <h3 class="work-title">地方創生マインクラフト脱出ゲーム</h3>
+              <p class="work-description">
+                都市計画・過疎化・地域資源をテーマにした、自己内省型の脱出ゲーム。
+                PaperMC / Geyserによるクロスプレイ環境に、NPC会話分岐と社会課題のギミックを実装し、社会人基礎力を「説明」ではなく行動から振り返る学習体験をつくります。
+              </p>
+            </div>
+            <div class="work-note">
+              <strong>Stack</strong>
+              PaperMC / Geyser<br>Minecraft Education<br>体験設計
+            </div>
+          </article>
+
+          <article class="work">
+            <div class="work-type">REGIONAL<br>DESIGN</div>
+            <div>
+              <h3 class="work-title">ローカル・オプティマイズ <span lang="en">/ Local Optimize</span></h3>
+              <p class="work-description">
+                地方創生と高卒就職DX、探究学習を接続する実践プロジェクト。
+                一人一社制がもたらす構造的な選択肢の狭さに着目し、道内自治体・高校でのフィールドワークを通じて、若者が地域で働く意味を自ら構想できる場を企画しています。
+              </p>
+            </div>
+            <div class="work-note">
+              <strong>Fieldwork</strong>
+              道内自治体・高校<br>探究企画 / ヒアリング<br>地域連携
+            </div>
+          </article>
+
+          <article class="work">
+            <div class="work-type">OPEN<br>SOURCE</div>
+            <div>
+              <h3 class="work-title"><a href="https://github.com/yoshida-sasuke/gcp-minecraft-server-automation" target="_blank" rel="noopener noreferrer">GCP Minecraft 統合版自律インフラ ↗</a></h3>
+              <p class="work-description">
+                Bedrock Dedicated Serverを、低コストかつ安全に運用するためのOSS。
+                GASによるWeb起動ポータル、DuckDNS自動追従、NetherNet対応、無人時15分の自動停止を組み合わせ、利用者の待ち時間とクラウドの無駄な稼働を同時に減らす仕組みを公開しています。
+              </p>
+            </div>
+            <div class="work-note">
+              <strong>Stack</strong>
+              GCP / BDS / GAS<br>DuckDNS / Python<br>15 min auto-stop
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="engineering">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-number">03 / Engineering</div>
+          <div>
+            <h2 class="section-title">現場の摩擦を、運用できる技術に変える。</h2>
+            <p class="section-intro">
+              使う人の手作業を減らすだけでなく、障害時の復旧、記録、継続運用まで考えた自動化を構築しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability">
+            <h3>CoursePower 完全自動化</h3>
+            <p>SoftEther VPN経由の出席登録、Playwrightによるブラウザ操作、Discordへの証跡スクリーンショット送信を組み合わせ、毎朝の講義運用を自動化。</p>
+          </article>
+          <article class="capability">
+            <h3>講義資料・動画パイプライン</h3>
+            <p>CoursePowerとkit-chの資料・動画を自動取得し、Google Driveへ整理。NotebookLMへの投入までを一連の処理として接続。</p>
+          </article>
+          <article class="capability">
+            <h3>24時間 Linux サーバー運用</h3>
+            <p>Linux LXC上でVPN監視、Playwright自動化、Discord Bot、Obsidian双方向同期デーモンを継続稼働。PCを閉じても止まらない基盤を設計。</p>
+          </article>
+          <article class="capability">
+            <h3>学校祭の業務DX</h3>
+            <p>工大祭の運営では自作AIレジによる購買データ分析と需要予測を実施。販売判断に活用し、完売達成へつなげました。</p>
+          </article>
+        </div>
+
+        <ul class="detail-list">
+          <li>
+            <strong>Automation</strong>
+            <span>Python / Playwright / Google Apps Script / Discord Webhook / Google Drive API</span>
+          </li>
+          <li>
+            <strong>Infrastructure</strong>
+            <span>Linux LXC / systemd / SoftEther VPN / GCP Compute Engine / DuckDNS</span>
+          </li>
+          <li>
+            <strong>Development</strong>
+            <span>HTML / CSS / JavaScript / Web UI設計 / サーバー・ネットワーク構築</span>
+          </li>
+          <li>
+            <strong>Civil Engineering</strong>
+            <span>構造力学 / 水理学 / 土質力学 / 雪氷学 / 測量学 / 都市計画</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-number">04 / Mentoring</div>
+          <div>
+            <h2 class="section-title">学ぶ人の横で、長く伴走する。</h2>
+            <p class="section-intro">
+              技術をつくることと同じくらい、目の前の一人が「できるかもしれない」と思える関係づくりを大切にしています。
+            </p>
+          </div>
+        </div>
+
+        <div class="education-layout">
+          <div>
+            <p class="education-copy">
+              高校生への数理・情報・英語の個別指導では、単発の解説ではなく、学習のつまずきと進路を一緒に整理する長期カリキュラムを実践しています。板書アーカイブは23回を超え、本人が後から自分の成長を見直せる形で残しています。
+            </p>
+            <p class="education-copy" style="margin-top: 22px;">
+              LITALICOワンダー / CUでは、発達支援メンターとして教育版Minecraftを用いた活動を担当。奈井江町サマーキャンプや深川西高校の探究企画では、中高生の挑戦を支える大学生メンターとして現場に立っています。
+            </p>
+          </div>
+
+          <div class="school-list">
+            <article class="school">
+              <img class="school-logo" src="kit-logo.png" alt="北見工業大学ロゴ">
+              <div>
+                <h3>北見工業大学</h3>
+                <p>地域未来デザイン工学科 社会インフラ工学コース<br>社会基盤の専門性を、地域・教育・技術実装へ接続。</p>
+              </div>
+            </article>
+            <article class="school">
+              <img class="school-logo" src="moiwa-logo.png" alt="市立札幌藻岩高等学校ロゴ">
+              <div>
+                <h3>市立札幌藻岩高等学校</h3>
+                <p>探究プロジェクトリーダー / 学校祭幹部<br>公共交通ボードゲーム「ET-project」の開発をはじめ、探究活動を主導。</p>
+              </div>
+            </article>
+            <article class="school">
+              <div class="school-logo placeholder" aria-hidden="true"></div>
+              <div>
+                <h3>札幌市立簾舞中学校</h3>
+                <p>第74期生徒会長 / 卒業生代表答辞<br>クラス独自行事「プロジェクトゼロ」を立案し、対話から企画をつくる原点を培う。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="history">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-number">05 / History</div>
+          <div>
+            <h2 class="section-title">受賞と実践の軌跡。</h2>
+            <p class="section-intro">学校・地域・社会課題を、具体的なプロジェクトとして形にしてきました。</p>
+          </div>
+        </div>
+
+        <div class="timeline content">
+          <article class="timeline-item">
+            <div class="year">2025</div>
+            <div>
+              <h3>札幌まちづくりコンペティション2025 最優秀賞</h3>
+              <p>パークPFIを用いた札幌市のまちづくり提案で最優秀賞を受賞。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="year">2024</div>
+            <div>
+              <h3>SSAS2024 Originality賞</h3>
+              <p>独自の問いと表現を軸に、探究・企画活動の成果を発表。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="year">2024</div>
+            <div>
+              <h3>第6回 持続可能な世界・北海道高校生コンテスト 優秀賞</h3>
+              <p>公共交通の課題を遊びながら考えるボードゲーム「ET-project」で受賞。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="year">2022</div>
+            <div>
+              <h3>市立札幌藻岩高等学校 入学・探究プロジェクトリーダー</h3>
+              <p>学校祭や探究活動で、参加者を巻き込みながら企画を前に進める経験を重ねる。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="year">2021–2022</div>
+            <div>
+              <h3>簾舞中学校 生徒会長・第74回卒業生代表答辞</h3>
+              <p>生徒会長として「プロジェクトゼロ」を立案。卒業式では卒業生代表として答辞を担当。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container contact-grid">
+        <div class="section-number">06 / Contact</div>
+        <div>
+          <h2>地域・教育・技術の接点から、<br>一緒に実装します。</h2>
+          <p>
+            建設ICT、IT、総合コンサル、自治体での実践機会や、ナナメイトとの連携をご検討の方はご連絡ください。
+            企画の初期段階から、現場に根付く仕組みづくりまで伴走します。
+          </p>
+          <div class="contact-links">
+            <a class="button button-primary" href="mailto:suika252567@gmail.com">suika252567@gmail.com</a>
+            <a class="button button-secondary" href="mailto:yoshida.sasuke.06@gmail.com">yoshida.sasuke.06@gmail.com</a>
+            <a class="button button-secondary" href="https://github.com/yoshida-sasuke" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© 2026 SASUKE YOSHIDA</span>
+      <span>KITAMI / SAPPORO, HOKKAIDO</span>
+    </div>
+  </footer>
 </body>
 </html>
