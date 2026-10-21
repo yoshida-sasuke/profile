@@ -1,962 +1,965 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="吉田蒼将（サスケ）の公式ポートフォリオ。社会基盤工学、教育、地域実践、Python自動化・24時間サーバー運用の実績。">
-  <title>吉田 蒼将 | Sasuke Yoshida — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="吉田蒼将（サスケ）の公式ポートフォリオ。地域社会の課題解決、まちづくり、教育実践、業務DXに取り組んでいます。">
+  <title>吉田蒼将｜地域課題を、対話と実装で前に進める。</title>
   <style>
     :root {
-      --ink: #16201b;
-      --muted: #58645d;
-      --line: #dce3de;
-      --surface: #f7f9f7;
+      --bg: #ffffff;
+      --surface: #f6f8fa;
+      --text: #1f2328;
+      --muted: #656d76;
+      --border: #d0d7de;
       --green: #1b4332;
-      --green-2: #2d6a4f;
-      --green-pale: #e8f0eb;
-      --white: #ffffff;
-      --mono: "DM Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
-      --sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --green-hover: #2d6a4f;
+      --blue: #0969da;
+      --gold: #b45309;
+      --gold-bg: #fff8c5;
+      --max: 1160px;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      --mono: "DM Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     }
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
 
     body {
       margin: 0;
-      color: var(--ink);
-      background: var(--white);
+      color: var(--text);
+      background: var(--bg);
       font-family: var(--sans);
-      font-size: 15px;
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.75;
     }
 
     a {
-      color: inherit;
+      color: var(--blue);
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
     }
 
-    a:hover { color: var(--green-2); }
+    a:hover { color: var(--green-hover); }
 
-    img { max-width: 100%; display: block; }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 16px;
+      z-index: 20;
+      padding: 8px 12px;
+      color: #fff;
+      background: var(--green);
+    }
+
+    .skip-link:focus { top: 8px; }
 
     .container {
-      width: min(1180px, calc(100% - 48px));
+      width: min(calc(100% - 40px), var(--max));
       margin: 0 auto;
     }
 
-    .content {
-      width: min(850px, 100%);
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--green); }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      overflow-x: auto;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .site-nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .site-nav a:hover {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .hero {
+      padding: 72px 0 64px;
+      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(90deg, transparent 0, transparent calc(100% - 1px), rgba(208, 215, 222, .35) calc(100% - 1px)),
+        var(--bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 272px;
+      gap: 56px;
+      align-items: end;
     }
 
     .eyebrow,
-    .section-number,
-    .meta-label,
-    .year,
-    .nav-brand small {
+    .section-kicker,
+    .record-year,
+    .status {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 12px;
+      font-weight: 700;
       letter-spacing: .06em;
       text-transform: uppercase;
     }
 
     .eyebrow {
-      color: var(--green-2);
-      font-weight: 500;
-      margin: 0 0 16px;
-    }
-
-    .site-header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.96);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .site-nav {
-      min-height: 70px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .nav-brand {
-      text-decoration: none;
-      line-height: 1.25;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .nav-brand small {
-      display: block;
-      color: var(--muted);
-      margin-top: 3px;
-      font-size: 9px;
-      font-weight: 400;
-    }
-
-    .nav-links {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      list-style: none;
-      gap: 24px;
-      font-size: 13px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover { color: var(--green); }
-
-    .hero {
-      padding: 88px 0 72px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 315px;
-      gap: 70px;
-      align-items: end;
-    }
-
-    .hero h1 {
-      margin: 0;
-      max-width: 730px;
-      font-size: clamp(34px, 4.2vw, 58px);
-      font-weight: 700;
-      letter-spacing: -.045em;
-      line-height: 1.2;
-    }
-
-    .hero h1 span {
-      display: block;
+      margin: 0 0 12px;
       color: var(--green);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 24px;
+      font-size: clamp(36px, 5vw, 68px);
+      line-height: 1.17;
+      letter-spacing: -.045em;
     }
 
     .hero-lead {
-      max-width: 780px;
-      margin: 28px 0 0;
-      color: #35423a;
-      font-size: 17px;
+      max-width: 690px;
+      margin-bottom: 28px;
+      color: #424a53;
+      font-size: clamp(17px, 2vw, 20px);
       line-height: 1.9;
     }
 
-    .hero-actions {
+    .hero-meta {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 32px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 43px;
-      padding: 9px 18px;
-      border: 1px solid var(--green);
-      border-radius: 4px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background-color .15s ease, color .15s ease;
-    }
-
-    .button-primary {
-      color: var(--white);
-      background: var(--green);
-    }
-
-    .button-primary:hover {
-      color: var(--white);
-      background: #123223;
-    }
-
-    .button-secondary {
-      color: var(--green);
-      background: var(--white);
-    }
-
-    .button-secondary:hover { background: var(--green-pale); }
-
-    .profile-figure {
+      gap: 8px 18px;
       margin: 0;
-      border-bottom: 1px solid var(--line);
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    .profile-figure img {
+    .hero-meta li::before {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin: 0 8px 1px 0;
+      border-radius: 50%;
+      background: var(--green);
+      content: "";
+    }
+
+    .profile-panel {
+      border-left: 1px solid var(--border);
+      padding-left: 24px;
+    }
+
+    .profile-photo {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
-      object-position: center top;
+      border: 1px solid var(--border);
+      border-radius: 4px;
       background: var(--surface);
-      filter: saturate(.9);
     }
 
-    .profile-figure figcaption {
-      padding: 10px 0 12px;
+    .profile-name {
+      margin: 14px 0 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .profile-reading {
+      margin: 0;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 12px;
+    }
+
+    .affiliations {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .affiliation-logo {
+      width: 42px;
+      height: 42px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .award-banner {
+      border-bottom: 1px solid var(--border);
+      background: var(--gold-bg);
+    }
+
+    .award-inner {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 24px;
+      padding: 16px 0;
+      align-items: center;
+    }
+
+    .award-label {
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+
+    .award-copy {
+      margin: 0;
+      font-weight: 700;
       line-height: 1.5;
     }
 
-    .quick-facts {
+    section { padding: 80px 0; }
+
+    section + section { border-top: 1px solid var(--border); }
+
+    .section-heading {
       display: grid;
-      grid-template-columns: 1.1fr 1.4fr .9fr;
-      border-bottom: 1px solid var(--line);
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 40px;
+      margin-bottom: 44px;
+      align-items: start;
     }
 
-    .fact {
-      min-height: 132px;
-      padding: 25px 28px 24px 0;
-      border-right: 1px solid var(--line);
+    .section-kicker {
+      margin: 5px 0 0;
+      color: var(--green);
     }
 
-    .fact + .fact { padding-left: 28px; }
-
-    .fact:last-child { border-right: 0; }
-
-    .meta-label {
-      display: block;
-      color: var(--green-2);
+    h2 {
       margin-bottom: 10px;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.25;
+      letter-spacing: -.03em;
     }
 
-    .fact p {
+    .section-summary {
+      max-width: 720px;
       margin: 0;
-      font-size: 14px;
-      line-height: 1.75;
-    }
-
-    section { padding: 86px 0; }
-
-    section + section { border-top: 1px solid var(--line); }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 150px minmax(0, 1fr);
-      gap: 24px;
-      margin-bottom: 46px;
-    }
-
-    .section-number {
-      color: var(--green-2);
-      padding-top: 8px;
-    }
-
-    .section-title {
-      margin: 0;
-      max-width: 760px;
-      font-size: clamp(27px, 3vw, 40px);
-      letter-spacing: -.035em;
-      line-height: 1.3;
-    }
-
-    .section-intro {
-      max-width: 780px;
-      margin: 17px 0 0;
       color: var(--muted);
-      font-size: 16px;
     }
-
-    .statement {
-      border-left: 4px solid var(--green);
-      padding: 4px 0 4px 25px;
-      max-width: 810px;
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 1.85;
-    }
-
-    .statement p { margin: 0; }
 
     .principles {
-      margin-top: 48px;
-      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 2px solid var(--green);
+      border-bottom: 1px solid var(--border);
     }
 
     .principle {
-      display: grid;
-      grid-template-columns: 52px 220px minmax(0, 1fr);
-      gap: 22px;
-      padding: 25px 0;
-      border-bottom: 1px solid var(--line);
+      padding: 24px 24px 28px 0;
     }
 
-    .principle-index {
-      color: var(--green-2);
+    .principle + .principle {
+      padding-left: 24px;
+      border-left: 1px solid var(--border);
+    }
+
+    .principle-number {
+      color: var(--green);
       font-family: var(--mono);
       font-size: 12px;
-      padding-top: 3px;
+      font-weight: 700;
     }
 
-    .principle h3,
-    .work-title,
-    .capability h3 {
-      margin: 0;
-      font-size: 16px;
-      letter-spacing: -.015em;
-      line-height: 1.55;
+    .principle h3 {
+      margin: 8px 0;
+      font-size: 19px;
+      line-height: 1.45;
     }
 
-    .principle p,
-    .capability p {
+    .principle p {
       margin: 0;
       color: var(--muted);
       font-size: 14px;
     }
 
-    .works {
-      border-top: 2px solid var(--green);
-    }
-
-    .work {
+    .featured-record {
       display: grid;
-      grid-template-columns: 130px minmax(0, 1fr) 170px;
-      gap: 28px;
-      padding: 30px 0;
-      border-bottom: 1px solid var(--line);
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 32px;
+      border-top: 2px solid var(--gold);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0 32px;
     }
 
-    .work-type {
-      color: var(--green-2);
+    .record-year {
+      color: var(--gold);
+    }
+
+    .featured-record h3 {
+      margin-bottom: 10px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+    }
+
+    .featured-record p {
+      max-width: 800px;
+      margin-bottom: 14px;
+    }
+
+    .achievement-tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 2px 8px;
+      border: 1px solid #d4a72c;
+      border-radius: 4px;
+      color: #7a4d00;
+      background: var(--gold-bg);
       font-family: var(--mono);
-      font-size: 11px;
-      line-height: 1.6;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .msp-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+      gap: 48px;
+      margin-top: 56px;
+      align-items: start;
+    }
+
+    .msp-copy h3 {
+      margin-bottom: 14px;
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.35;
+    }
+
+    .msp-copy > p {
+      color: #424a53;
+    }
+
+    .case-list {
+      margin: 24px 0 0;
+      padding: 0;
+      border-top: 1px solid var(--border);
+      list-style: none;
+    }
+
+    .case-list li {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .case-list strong {
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 12px;
       letter-spacing: .03em;
     }
 
-    .work-title { font-size: 20px; }
-
-    .work-title a {
-      color: var(--green);
-      text-decoration-color: #a5c7b2;
+    .image-stack {
+      display: grid;
+      gap: 16px;
     }
 
-    .work-title a:hover { color: #0f3221; }
+    figure {
+      margin: 0;
+    }
 
-    .work-description {
-      margin: 10px 0 0;
-      color: #435048;
+    .project-image {
+      width: 100%;
+      height: auto;
+      max-height: 280px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--surface);
+    }
+
+    figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .recognition {
+      margin: 32px 0 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--green);
+      background: var(--surface);
+    }
+
+    .recognition p {
+      margin: 0;
       font-size: 14px;
     }
 
-    .work-note {
+    .record-table-wrap {
+      overflow-x: auto;
+      border-top: 2px solid var(--green);
+    }
+
+    .record-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      text-align: left;
+    }
+
+    .record-table th,
+    .record-table td {
+      padding: 18px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .record-table th {
+      width: 140px;
       color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .record-table td:first-of-type {
+      width: 300px;
+      font-weight: 700;
+    }
+
+    .record-table td:last-child {
+      color: #424a53;
+      font-size: 14px;
+    }
+
+    .upcoming {
+      background: var(--surface);
+    }
+
+    .initiative-list {
+      border-top: 2px solid var(--green);
+    }
+
+    .initiative {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr) 170px;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .status {
+      color: var(--green);
+    }
+
+    .initiative h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .initiative p {
+      margin: 0;
+      color: #424a53;
+      font-size: 14px;
+    }
+
+    .initiative-note {
+      color: var(--muted);
+      font-family: var(--mono);
       font-size: 12px;
       line-height: 1.7;
     }
 
-    .work-note strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--ink);
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .capability-grid {
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0 52px;
-      border-top: 1px solid var(--line);
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 64px;
     }
 
-    .capability {
-      padding: 27px 0;
-      border-bottom: 1px solid var(--line);
+    .about-grid h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
     }
 
-    .capability h3 { color: var(--green); }
+    .about-grid p { max-width: 700px; }
 
-    .capability p { margin-top: 9px; }
-
-    .detail-list {
-      margin: 44px 0 0;
+    .skills {
+      margin: 24px 0 0;
       padding: 0;
+      border-top: 1px solid var(--border);
       list-style: none;
-      border-top: 1px solid var(--line);
     }
 
-    .detail-list li {
+    .skills li {
       display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 24px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line);
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
       font-size: 14px;
     }
 
-    .detail-list strong { font-weight: 600; }
-
-    .education-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: 70px;
-      align-items: start;
-    }
-
-    .education-copy {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .school-list {
-      border-top: 1px solid var(--line);
-    }
-
-    .school {
-      display: grid;
-      grid-template-columns: 82px 1fr;
-      gap: 20px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .school-logo {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      object-position: left center;
-    }
-
-    .school-logo.placeholder { visibility: hidden; }
-
-    .school h3 {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .school p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.75;
-    }
-
-    .timeline {
-      border-top: 2px solid var(--green);
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 110px minmax(0, 1fr);
-      gap: 30px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .year {
-      color: var(--green-2);
+    .skills strong {
+      font-family: var(--mono);
       font-size: 12px;
-      padding-top: 4px;
+      letter-spacing: .02em;
     }
 
-    .timeline-item h3 {
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.65;
+    .contact-panel {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--green);
+      border-radius: 4px;
+      background: #fff;
     }
 
-    .timeline-item p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .contact-panel p { margin-bottom: 20px; }
 
-    .contact {
-      padding: 82px 0 88px;
-      color: var(--white);
-      background: var(--green);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 150px minmax(0, 1fr);
-      gap: 24px;
-    }
-
-    .contact .section-number { color: #b8d7c4; }
-
-    .contact h2 {
-      margin: 0;
-      font-size: clamp(28px, 3.4vw, 43px);
-      letter-spacing: -.035em;
-      line-height: 1.3;
-    }
-
-    .contact p {
-      max-width: 720px;
-      margin: 18px 0 0;
-      color: #d9e9de;
-      font-size: 16px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 31px;
-    }
-
-    .contact .button-primary {
+    .contact-email {
+      display: inline-block;
+      overflow-wrap: anywhere;
       color: var(--green);
-      border-color: var(--white);
-      background: var(--white);
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    .contact .button-primary:hover { background: #e8f0eb; }
-
-    .contact .button-secondary {
-      color: var(--white);
-      border-color: #94baa2;
-      background: transparent;
-    }
-
-    .contact .button-secondary:hover {
-      color: var(--white);
-      background: rgba(255,255,255,.1);
-    }
+    .contact-email:hover { color: var(--green-hover); }
 
     footer {
-      padding: 20px 0;
-      background: #102a1e;
-      color: #b9ccbe;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
       font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: .03em;
+      font-size: 12px;
     }
 
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-    }
+    @media (max-width: 760px) {
+      .container { width: min(calc(100% - 32px), var(--max)); }
 
-    @media (max-width: 800px) {
-      .container { width: min(100% - 32px, 1180px); }
+      .header-inner { min-height: 56px; }
 
-      .nav-links { display: none; }
+      .site-nav { gap: 14px; }
 
-      .hero { padding: 56px 0 52px; }
+      .site-nav a:nth-child(2),
+      .site-nav a:nth-child(3) { display: none; }
+
+      .hero { padding: 40px 0; }
 
       .hero-grid,
-      .education-layout { grid-template-columns: 1fr; gap: 36px; }
-
-      .profile-figure { max-width: 315px; }
-
-      .quick-facts { grid-template-columns: 1fr; }
-
-      .fact,
-      .fact + .fact {
-        min-height: auto;
-        padding: 22px 0;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .fact:last-child { border-bottom: 0; }
-
-      section { padding: 62px 0; }
-
-      .section-head,
-      .contact-grid {
+      .msp-layout,
+      .about-grid {
         grid-template-columns: 1fr;
-        gap: 8px;
-        margin-bottom: 33px;
+        gap: 32px;
       }
 
-      .principle {
-        grid-template-columns: 40px 1fr;
-        gap: 10px 16px;
+      .profile-panel {
+        display: grid;
+        grid-template-columns: 112px minmax(0, 1fr);
+        column-gap: 16px;
+        border-top: 1px solid var(--border);
+        border-left: 0;
+        padding-top: 20px;
+        padding-left: 0;
       }
 
-      .principle p { grid-column: 2; }
+      .profile-photo {
+        grid-row: span 3;
+        width: 112px;
+      }
 
-      .work {
+      .affiliations { margin-top: 8px; }
+
+      .award-inner,
+      .section-heading,
+      .featured-record {
         grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      section { padding: 56px 0; }
+
+      .section-heading { margin-bottom: 32px; }
+
+      .principles { grid-template-columns: 1fr; }
+
+      .principle,
+      .principle + .principle {
+        padding: 20px 0;
+        border-left: 0;
+      }
+
+      .principle + .principle { border-top: 1px solid var(--border); }
+
+      .case-list li {
+        grid-template-columns: 78px minmax(0, 1fr);
         gap: 10px;
       }
 
-      .work-note { margin-top: 5px; }
-
-      .capability-grid { grid-template-columns: 1fr; }
-
-      .detail-list li,
-      .timeline-item {
+      .initiative {
         grid-template-columns: 1fr;
-        gap: 5px;
+        gap: 8px;
+        padding: 24px 0;
       }
 
-      .school { grid-template-columns: 70px 1fr; }
-
-      footer .container { flex-direction: column; }
+      .skills li {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
     }
   </style>
 </head>
+
 <body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
   <header class="site-header">
-    <nav class="site-nav container" aria-label="メインナビゲーション">
-      <a class="nav-brand" href="#top">
-        吉田 蒼将
-        <small>SASUKE YOSHIDA / PORTFOLIO</small>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#work">Projects</a></li>
-        <li><a href="#engineering">Engineering</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#history">History</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="container header-inner">
+      <a class="brand" href="#top">SASUKE <span>YOSHIDA</span></a>
+      <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a href="#achievements">実績・活動軌跡</a>
+        <a href="#vision">構想・計画</a>
+        <a href="#about">プロフィール</a>
+        <a href="#contact">連絡先</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">Civil Infrastructure × Software × Education</p>
-          <h1>地域の課題を、<span>体験と仕組みで解く。</span></h1>
+          <p class="eyebrow">Official Portfolio / Kitami, Hokkaido</p>
+          <h1 id="hero-title">地域の声を、<br>対話と実装で前に進める。</h1>
           <p class="hero-lead">
-            吉田蒼将（サスケ）は、北見工業大学で社会基盤工学を学びながら、
-            教育・地域づくり・学内DXの現場で、企画から実装、継続運用までを担う学生です。
-            人の行動が変わる体験設計と、それを支える堅牢な技術基盤を一体でつくります。
+            まちづくり、公共交通、教育の現場に入り、当事者と一緒に課題を捉える。
+            体験型の仕組みづくりとデータ活用を通じて、参加した人が次の一歩を選べる状態をつくります。
           </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#work">プロジェクトを見る</a>
-            <a class="button button-secondary" href="https://github.com/yoshida-sasuke" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          </div>
+          <ul class="hero-meta" aria-label="プロフィール要約">
+            <li>北見工業大学 工学部 2年</li>
+            <li>地域未来デザイン工学科</li>
+            <li>社会インフラ工学コース</li>
+          </ul>
         </div>
 
-        <figure class="profile-figure">
-          <img src="profile.png" alt="吉田蒼将のプロフィール写真">
-          <figcaption>YOSHIDA SASUKE / KITAMI, HOKKAIDO</figcaption>
-        </figure>
+        <aside class="profile-panel" aria-label="吉田蒼将のプロフィール">
+          <img class="profile-photo" src="profile.png" alt="吉田蒼将のプロフィール写真">
+          <p class="profile-name">吉田 蒼将 <span lang="en">/ Sasuke Yoshida</span></p>
+          <p class="profile-reading">Community Design · Education · DX</p>
+          <div class="affiliations" aria-label="所属校">
+            <img class="affiliation-logo" src="kit-logo.png" alt="北見工業大学ロゴ">
+            <img class="affiliation-logo" src="moiwa-logo.png" alt="市立札幌藻岩高等学校ロゴ">
+          </div>
+        </aside>
       </div>
     </section>
 
-    <div class="container quick-facts" aria-label="プロフィール概要">
-      <div class="fact">
-        <span class="meta-label">Affiliation</span>
-        <p>北見工業大学 工学部<br>地域未来デザイン工学科<br>社会インフラ工学コース 2年</p>
+    <aside class="award-banner" aria-label="主要受賞歴">
+      <div class="container award-inner">
+        <div class="award-label">Selected Achievement</div>
+        <p class="award-copy">2025年 札幌まちづくりコンペティション 最優秀賞 — 市民・学生・行政をつなぐ持続可能な都市・地域デザインの提案</p>
       </div>
-      <div class="fact">
-        <span class="meta-label">Focus</span>
-        <p>構造・水理・土質・雪氷・測量・都市計画<br>Python自動化 / Linux運用 / Web・UI開発</p>
-      </div>
-      <div class="fact">
-        <span class="meta-label">Based in</span>
-        <p>北海道北見市<br>札幌市南区簾舞</p>
-      </div>
-    </div>
+    </aside>
 
-    <section id="about">
+    <section aria-labelledby="approach-title">
       <div class="container">
-        <div class="section-head">
-          <div class="section-number">01 / Approach</div>
+        <div class="section-heading">
+          <p class="section-kicker">Approach</p>
           <div>
-            <h2 class="section-title">専門を分けずに、実装まで責任を持つ。</h2>
-            <p class="section-intro">
-              社会インフラを学ぶ視点、利用者と対話する教育実践、日々の運用に耐えるソフトウェア技術。
-              その三つを往復し、抽象的な提案だけで終わらない地域実践を目指しています。
+            <h2 id="approach-title">現場から考え、体験として実装する。</h2>
+            <p class="section-summary">
+              課題を「知る」だけで終わらせず、参加者が自分ごととして考え、対話し、行動できる設計へ落とし込みます。
             </p>
           </div>
-        </div>
-
-        <div class="statement content">
-          <p>「誰かにとっての課題」を、本人が考え、試し、前に進める状態へ変える。そのために必要な場・体験・データ基盤を、現場でつくります。</p>
         </div>
 
         <div class="principles">
           <article class="principle">
-            <div class="principle-index">01</div>
-            <h3>ナナメの関係</h3>
-            <p>親や教員とも、同級生とも異なる大学生メンターとして、中高生の自己効力感を引き出し、進路と挑戦の選択肢を増やします。</p>
+            <div class="principle-number">01 / LISTEN</div>
+            <h3>当事者の不自由から始める</h3>
+            <p>住民、生徒、利用者の声を起点に、数字だけでは見えない困りごとを具体化します。</p>
           </article>
           <article class="principle">
-            <div class="principle-index">02</div>
-            <h3>体験から始める学び</h3>
-            <p>Minecraftやボードゲームを使い、人口減少、交通、都市計画といった社会課題を、参加者自身が判断する没入体験へ変換します。</p>
+            <div class="principle-number">02 / MAKE</div>
+            <h3>参加できる形へ翻訳する</h3>
+            <p>ボードゲーム、ワークショップ、学習支援など、対話を生む体験として設計します。</p>
           </article>
           <article class="principle">
-            <div class="principle-index">03</div>
-            <h3>データと仕組み</h3>
-            <p>生活ログ、購買データ、業務フローを観察し、継続的に改善できる自動化・可視化・運用設計へ落とし込みます。</p>
+            <div class="principle-number">03 / IMPROVE</div>
+            <h3>実践とデータで改善する</h3>
+            <p>現場で試し、参加者の反応とデータをもとに、次の版へ確実に更新します。</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="work">
+    <section id="achievements" aria-labelledby="achievements-title">
       <div class="container">
-        <div class="section-head">
-          <div class="section-number">02 / Selected Work</div>
+        <div class="section-heading">
+          <p class="section-kicker">Track Record<br>&amp; Achievements</p>
           <div>
-            <h2 class="section-title">教育、地域、技術基盤を横断するプロジェクト。</h2>
-            <p class="section-intro">
-              企画書で終わらせず、実際に人が参加し、運用され、次の改善につながるところまで設計・実装しています。
+            <h2 id="achievements-title">実績・活動軌跡</h2>
+            <p class="section-summary">
+              受賞、地域実践、教育伴走、組織運営。すでに現場で実施し、検証を重ねてきた活動です。
             </p>
           </div>
         </div>
 
-        <div class="works">
-          <article class="work">
-            <div class="work-type">EDUCATION<br>BUSINESS</div>
+        <article class="featured-record">
+          <div class="record-year">2025<br>AWARD</div>
+          <div>
+            <span class="achievement-tag">最優秀賞</span>
+            <h3>札幌まちづくりコンペティション</h3>
+            <p>
+              札幌市主催の市民参加型まちづくりコンペティションにて最優秀賞を受賞。
+              市民・学生・行政の間にある情報や立場の隔たりを、対話を通じてつなぎ、
+              持続可能な都市・地域デザインとして提案しました。
+            </p>
+          </div>
+        </article>
+
+        <div class="msp-layout">
+          <div class="msp-copy">
+            <p class="record-year">2023–2024 / PUBLIC TRANSPORT INQUIRY</p>
+            <h3>MSP 公共交通探究<br>『E-T Project』</h3>
+            <p>
+              通学バスの減便、運賃の上昇、地方郊外で進む移動手段の縮小。
+              「通学や進路を、移動の事情で諦めなければならない状況」を変えたいという問題意識から、
+              公共交通とCO₂削減をテーマにしたシリアスボードゲームを独自開発しました。
+            </p>
+
+            <ul class="case-list">
+              <li>
+                <strong>PROBLEM</strong>
+                <span>公共交通の維持と生活・進路の選択肢が直結する現実を、身近な課題として捉える。</span>
+              </li>
+              <li>
+                <strong>DESIGN</strong>
+                <span>札幌市の地図上に路線を引き、交通維持とCO₂削減を競う「桃鉄型」の体験設計。</span>
+              </li>
+              <li>
+                <strong>FIELD TEST</strong>
+                <span>NPO法人 E-Link（喫茶こども）等で小中学生向けワークショップとテストプレイを実施。</span>
+              </li>
+              <li>
+                <strong>ITERATION</strong>
+                <span>ルール、マップ、意思決定の難易度を参加者の反応から見直し、Ver.3.0まで改良。</span>
+              </li>
+            </ul>
+
+            <div class="recognition">
+              <p><strong>選出・受賞：</strong>全国オンライン Summit 2023 選出 / SSAS 2024 Originality賞 / 北海道高校生持続可能コンテスト 優秀賞</p>
+            </div>
+          </div>
+
+          <div class="image-stack">
+            <figure>
+              <img class="project-image" src="assets/msp-canvas.png" alt="E-T Projectのボードゲーム全体マップ。札幌市の地図と公共交通路線を活用したゲーム設計">
+              <figcaption>『E-T Project』ゲーム盤面マップ。札幌市の地図と交通網を落とし込んだボード設計。</figcaption>
+            </figure>
+            <figure>
+              <img class="project-image" src="assets/msp-game-command.png" alt="E-T Projectにおけるコマンド・意思決定ルール表">
+              <figcaption>ゲーム内での路線整備・公共交通の選択とCO₂削減を連動させた意思決定ルール表。</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div style="height: 64px"></div>
+
+        <div class="record-table-wrap" role="region" aria-label="その他の実施済み実績" tabindex="0">
+          <table class="record-table">
+            <thead>
+              <tr>
+                <th scope="col">領域</th>
+                <th scope="col">活動</th>
+                <th scope="col">実施内容・成果</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">EDUCATION</th>
+                <td>長期教育伴走指導</td>
+                <td>ここなさんの数理・情報・英語を長期伴走。全23回以上の板書アーカイブを残し、高校合格後も高校課程の学習を継続支援。</td>
+              </tr>
+              <tr>
+                <th scope="row">EDUCATION</th>
+                <td>発達支援・教育現場実践</td>
+                <td>LITALICOワンダー、Minecraft CU、奈井江町サマーキャンプ、深川西高校の探究企画に参加。年齢や特性の異なる参加者が挑戦できる場を設計。</td>
+              </tr>
+              <tr>
+                <th scope="row">COMMUNITY</th>
+                <td>さっぽろまちづくりワークショップ</td>
+                <td>藻南地区・南区での住民対話と、まちづくり協議会との共創に参加。地域の声を施策や活動につなげる対話の場を経験。</td>
+              </tr>
+              <tr>
+                <th scope="row">DIVERSITY</th>
+                <td>多文化共生プロジェクト「U too」</td>
+                <td>留学生と高校生をつなぐ交流プロジェクトを共同運営。助成金採択を受けて活動し、事業完了まで運営を担当。</td>
+              </tr>
+              <tr>
+                <th scope="row">DX / EVENT</th>
+                <td>帯広畜産大学祭 出店DX</td>
+                <td>自作レジとAI購買データ分析を導入。時間帯別の値下げ戦略により、かき氷・うどんを完全完売。売上8万円・利益目標を達成。</td>
+              </tr>
+              <tr>
+                <th scope="row">LEADERSHIP</th>
+                <td>簾舞中学校 生徒会長「プロジェクトゼロ」</td>
+                <td>第74期生徒会長として学校改革プロジェクトを立案。生徒の意見を起点に、学校生活をより良くするための仕組みづくりを推進。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="upcoming" id="vision" aria-labelledby="vision-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Upcoming Initiatives<br>&amp; Vision</p>
+          <div>
+            <h2 id="vision-title">構想・計画段階</h2>
+            <p class="section-summary">
+              現在、企画・設計・検証を進めている取り組みです。実施済みの実績とは明確に区別して掲載しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="initiative-list">
+          <article class="initiative">
+            <div class="status">PLANNING</div>
             <div>
-              <h3 class="work-title">ナナメイト <span lang="en">/ Nanameito</span></h3>
-              <p class="work-description">
-                小樽商科大学の原田美魂さんと共同代表を務める、大学生メンターによるオンラインサードプレイス。
-                Discord・Minecraftでの日常的な関わりを基盤に、不登校・通信制高校生の「居場所」から「探究体験」、総合型選抜で示せる実績ポートフォリオへの接続を設計しています。
+              <h3>ナナメイト <span lang="en">/ Nanameito</span></h3>
+              <p>
+                原田美魂さんと共同代表として構想中。大学生メンターによる「斜めの関係」とAIを組み合わせ、
+                不登校・通信制高校生が安心して人や社会とつながり、探究へ進めるサードプレイスを目指します。
               </p>
             </div>
-            <div class="work-note">
-              <strong>Role</strong>
-              共同代表<br>事業設計 / 技術設計<br>メンタリング設計
-            </div>
+            <div class="initiative-note">北見工大ビジコン<br>企画・策定中</div>
           </article>
 
-          <article class="work">
-            <div class="work-type">SERIOUS<br>GAME</div>
+          <article class="initiative">
+            <div class="status">PROTOTYPING</div>
             <div>
-              <h3 class="work-title">地方創生マインクラフト脱出ゲーム</h3>
-              <p class="work-description">
-                都市計画・過疎化・地域資源をテーマにした、自己内省型の脱出ゲーム。
-                PaperMC / Geyserによるクロスプレイ環境に、NPC会話分岐と社会課題のギミックを実装し、社会人基礎力を「説明」ではなく行動から振り返る学習体験をつくります。
+              <h3>地方創生マインクラフト脱出ゲーム</h3>
+              <p>
+                過疎化、都市計画、地域資源といったテーマを、Minecraft上の謎解きと意思決定へ変換する教育ゲーム。
+                参加者が地域課題を自分の判断として考えられる体験を企画設計しています。
               </p>
             </div>
-            <div class="work-note">
-              <strong>Stack</strong>
-              PaperMC / Geyser<br>Minecraft Education<br>体験設計
-            </div>
+            <div class="initiative-note">企画設計・<br>コマンド実装中</div>
           </article>
 
-          <article class="work">
-            <div class="work-type">REGIONAL<br>DESIGN</div>
+          <article class="initiative">
+            <div class="status">RESEARCH</div>
             <div>
-              <h3 class="work-title">ローカル・オプティマイズ <span lang="en">/ Local Optimize</span></h3>
-              <p class="work-description">
-                地方創生と高卒就職DX、探究学習を接続する実践プロジェクト。
-                一人一社制がもたらす構造的な選択肢の狭さに着目し、道内自治体・高校でのフィールドワークを通じて、若者が地域で働く意味を自ら構想できる場を企画しています。
+              <h3>ローカル・オプティマイズ</h3>
+              <p>
+                地方における高卒就職の一人一社制が生む構造的な選択肢の狭さに向き合う構想。
+                自治体・高校・地域企業との対話を通じ、探究学習と進路選択を接続するプラットフォームを検討しています。
               </p>
             </div>
-            <div class="work-note">
-              <strong>Fieldwork</strong>
-              道内自治体・高校<br>探究企画 / ヒアリング<br>地域連携
-            </div>
-          </article>
-
-          <article class="work">
-            <div class="work-type">OPEN<br>SOURCE</div>
-            <div>
-              <h3 class="work-title"><a href="https://github.com/yoshida-sasuke/gcp-minecraft-server-automation" target="_blank" rel="noopener noreferrer">GCP Minecraft 統合版自律インフラ ↗</a></h3>
-              <p class="work-description">
-                Bedrock Dedicated Serverを、低コストかつ安全に運用するためのOSS。
-                GASによるWeb起動ポータル、DuckDNS自動追従、NetherNet対応、無人時15分の自動停止を組み合わせ、利用者の待ち時間とクラウドの無駄な稼働を同時に減らす仕組みを公開しています。
-              </p>
-            </div>
-            <div class="work-note">
-              <strong>Stack</strong>
-              GCP / BDS / GAS<br>DuckDNS / Python<br>15 min auto-stop
-            </div>
+            <div class="initiative-note">構想推進中<br>フィールドワーク</div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="engineering">
+    <section id="about" aria-labelledby="about-title">
       <div class="container">
-        <div class="section-head">
-          <div class="section-number">03 / Engineering</div>
+        <div class="section-heading">
+          <p class="section-kicker">Profile</p>
           <div>
-            <h2 class="section-title">現場の摩擦を、運用できる技術に変える。</h2>
-            <p class="section-intro">
-              使う人の手作業を減らすだけでなく、障害時の復旧、記録、継続運用まで考えた自動化を構築しています。
+            <h2 id="about-title">人を置き去りにしない、<br>地域の仕組みをつくる。</h2>
+            <p class="section-summary">
+              北見工業大学で社会インフラと地域デザインを学びながら、札幌・道内各地で教育、まちづくり、イベント運営に取り組んでいます。
             </p>
           </div>
         </div>
 
-        <div class="capability-grid">
-          <article class="capability">
-            <h3>CoursePower 完全自動化</h3>
-            <p>SoftEther VPN経由の出席登録、Playwrightによるブラウザ操作、Discordへの証跡スクリーンショット送信を組み合わせ、毎朝の講義運用を自動化。</p>
-          </article>
-          <article class="capability">
-            <h3>講義資料・動画パイプライン</h3>
-            <p>CoursePowerとkit-chの資料・動画を自動取得し、Google Driveへ整理。NotebookLMへの投入までを一連の処理として接続。</p>
-          </article>
-          <article class="capability">
-            <h3>24時間 Linux サーバー運用</h3>
-            <p>Linux LXC上でVPN監視、Playwright自動化、Discord Bot、Obsidian双方向同期デーモンを継続稼働。PCを閉じても止まらない基盤を設計。</p>
-          </article>
-          <article class="capability">
-            <h3>学校祭の業務DX</h3>
-            <p>工大祭の運営では自作AIレジによる購買データ分析と需要予測を実施。販売判断に活用し、完売達成へつなげました。</p>
-          </article>
-        </div>
-
-        <ul class="detail-list">
-          <li>
-            <strong>Automation</strong>
-            <span>Python / Playwright / Google Apps Script / Discord Webhook / Google Drive API</span>
-          </li>
-          <li>
-            <strong>Infrastructure</strong>
-            <span>Linux LXC / systemd / SoftEther VPN / GCP Compute Engine / DuckDNS</span>
-          </li>
-          <li>
-            <strong>Development</strong>
-            <span>HTML / CSS / JavaScript / Web UI設計 / サーバー・ネットワーク構築</span>
-          </li>
-          <li>
-            <strong>Civil Engineering</strong>
-            <span>構造力学 / 水理学 / 土質力学 / 雪氷学 / 測量学 / 都市計画</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-number">04 / Mentoring</div>
+        <div class="about-grid">
           <div>
-            <h2 class="section-title">学ぶ人の横で、長く伴走する。</h2>
-            <p class="section-intro">
-              技術をつくることと同じくらい、目の前の一人が「できるかもしれない」と思える関係づくりを大切にしています。
+            <h3>吉田 蒼将（よしだ さすけ）</h3>
+            <p>
+              北海道札幌市出身。中学生時代は生徒会長として学校改革に取り組み、
+              高校では公共交通を題材にした探究活動とボードゲーム開発を実践しました。
+              現在は北見工業大学で社会インフラ工学を学び、地域課題を「対話」「体験」「実装」の三つから捉えています。
             </p>
-          </div>
-        </div>
-
-        <div class="education-layout">
-          <div>
-            <p class="education-copy">
-              高校生への数理・情報・英語の個別指導では、単発の解説ではなく、学習のつまずきと進路を一緒に整理する長期カリキュラムを実践しています。板書アーカイブは23回を超え、本人が後から自分の成長を見直せる形で残しています。
+            <p>
+              まちづくりでも教育でも、最初に大切にするのは、目の前の人が何に困り、
+              どんな選択肢を失いかけているかです。課題を説明するだけではなく、
+              参加者が自分の意思で考え、次の行動を選べる場をつくります。
             </p>
-            <p class="education-copy" style="margin-top: 22px;">
-              LITALICOワンダー / CUでは、発達支援メンターとして教育版Minecraftを用いた活動を担当。奈井江町サマーキャンプや深川西高校の探究企画では、中高生の挑戦を支える大学生メンターとして現場に立っています。
+
+            <ul class="skills" aria-label="スキル">
+              <li><strong>FACILITATION</strong><span>住民・生徒・学生が対話しやすいワークショップ設計と進行</span></li>
+              <li><strong>PROJECT DESIGN</strong><span>地域課題を、ゲーム・探究・イベントなど参加可能な体験へ翻訳</span></li>
+              <li><strong>DATA / DX</strong><span>Python・業務自動化・購買データ分析を用いた運営改善</span></li>
+              <li><strong>TOOLS</strong><span>Python / JavaScript / HTML・CSS / GitHub / Minecraft Education</span></li>
+            </ul>
+          </div>
+
+          <aside class="contact-panel" id="contact" aria-labelledby="contact-title">
+            <p class="section-kicker">Contact</p>
+            <h3 id="contact-title">協働・登壇・ご相談</h3>
+            <p>
+              地域づくり、探究学習、教育プログラム、イベントDXに関する協働のご相談をお待ちしています。
             </p>
-          </div>
-
-          <div class="school-list">
-            <article class="school">
-              <img class="school-logo" src="kit-logo.png" alt="北見工業大学ロゴ">
-              <div>
-                <h3>北見工業大学</h3>
-                <p>地域未来デザイン工学科 社会インフラ工学コース<br>社会基盤の専門性を、地域・教育・技術実装へ接続。</p>
-              </div>
-            </article>
-            <article class="school">
-              <img class="school-logo" src="moiwa-logo.png" alt="市立札幌藻岩高等学校ロゴ">
-              <div>
-                <h3>市立札幌藻岩高等学校</h3>
-                <p>探究プロジェクトリーダー / 学校祭幹部<br>公共交通ボードゲーム「ET-project」の開発をはじめ、探究活動を主導。</p>
-              </div>
-            </article>
-            <article class="school">
-              <div class="school-logo placeholder" aria-hidden="true"></div>
-              <div>
-                <h3>札幌市立簾舞中学校</h3>
-                <p>第74期生徒会長 / 卒業生代表答辞<br>クラス独自行事「プロジェクトゼロ」を立案し、対話から企画をつくる原点を培う。</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="history">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-number">05 / History</div>
-          <div>
-            <h2 class="section-title">受賞と実践の軌跡。</h2>
-            <p class="section-intro">学校・地域・社会課題を、具体的なプロジェクトとして形にしてきました。</p>
-          </div>
-        </div>
-
-        <div class="timeline content">
-          <article class="timeline-item">
-            <div class="year">2025</div>
-            <div>
-              <h3>札幌まちづくりコンペティション2025 最優秀賞</h3>
-              <p>パークPFIを用いた札幌市のまちづくり提案で最優秀賞を受賞。</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="year">2024</div>
-            <div>
-              <h3>SSAS2024 Originality賞</h3>
-              <p>独自の問いと表現を軸に、探究・企画活動の成果を発表。</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="year">2024</div>
-            <div>
-              <h3>第6回 持続可能な世界・北海道高校生コンテスト 優秀賞</h3>
-              <p>公共交通の課題を遊びながら考えるボードゲーム「ET-project」で受賞。</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="year">2022</div>
-            <div>
-              <h3>市立札幌藻岩高等学校 入学・探究プロジェクトリーダー</h3>
-              <p>学校祭や探究活動で、参加者を巻き込みながら企画を前に進める経験を重ねる。</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="year">2021–2022</div>
-            <div>
-              <h3>簾舞中学校 生徒会長・第74回卒業生代表答辞</h3>
-              <p>生徒会長として「プロジェクトゼロ」を立案。卒業式では卒業生代表として答辞を担当。</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container contact-grid">
-        <div class="section-number">06 / Contact</div>
-        <div>
-          <h2>地域・教育・技術の接点から、<br>一緒に実装します。</h2>
-          <p>
-            建設ICT、IT、総合コンサル、自治体での実践機会や、ナナメイトとの連携をご検討の方はご連絡ください。
-            企画の初期段階から、現場に根付く仕組みづくりまで伴走します。
-          </p>
-          <div class="contact-links">
-            <a class="button button-primary" href="mailto:suika252567@gmail.com">suika252567@gmail.com</a>
-            <a class="button button-secondary" href="mailto:yoshida.sasuke.06@gmail.com">yoshida.sasuke.06@gmail.com</a>
-            <a class="button button-secondary" href="https://github.com/yoshida-sasuke" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          </div>
+            <a class="contact-email" href="mailto:yoshida.sasuke.06@gmail.com">yoshida.sasuke.06@gmail.com</a>
+          </aside>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <span>© 2026 SASUKE YOSHIDA</span>
-      <span>KITAMI / SAPPORO, HOKKAIDO</span>
-    </div>
+    <div class="container">© 2026 Sasuke Yoshida. All rights reserved.</div>
   </footer>
 </body>
 </html>
